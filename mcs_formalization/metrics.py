@@ -34,8 +34,6 @@ def get_scores(threshold):
 
             writer = csv.writer(file_)
 
-            writer.writerow([category])
-
             with open(
                 DATA_DIR_PATH / f"categorizations/{category}_Binary_{threshold}.csv"
             ) as csv_file:
