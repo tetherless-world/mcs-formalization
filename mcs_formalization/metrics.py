@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 from sklearn import metrics
-from mcs_formalization.path import DATA_DIR_PATH, ROOT_DIR_PATH
+from path import DATA_DIR_PATH, ROOT_DIR_PATH
 import csv
 from scipy import stats
 
@@ -63,9 +63,10 @@ def get_scores(threshold):
                         pvalue_list.append(stats.ttest_ind(y_test, y_pred)[1])
 
                     header_row = [init] + others
+                    writer.writerow(header_row)
                     writer.writerow(accuracy_list)
                     writer.writerow(balanced_accuracy_list)
-                    writer.writerow(header_row)
+                    writer.writerow(pvalue_list)
                     writer.writerow([])
 
 
